@@ -17,14 +17,14 @@
 class Solution {
 public:
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
-        vector<vector<int>> ans;
+        vector<vector<int>> res;
         
         sort(people.begin(), people.end(), [](vector<int> a, vector<int> b){
             return a[0] == b[0] ? a[1] > b[1] : a[0] < b[0]; 
         });
         
         for(int i=people.size()-1; i>=0; i--)
-            ans.insert(ans.begin() + people[i][1], people[i]);
+            res.insert(res.begin() + people[i][1], people[i]);
         
         return ans;
     }
